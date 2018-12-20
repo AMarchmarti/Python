@@ -1,16 +1,13 @@
-class Sulfuras():
+from item import Item
+class Sulfuras(Item):
 
-    def __init__(self, name, sell_in, quality):
-        self.name = name
-        self.sell_in = sell_in
-        self.quality = quality
+    def setSell_in(self):
+        pass
 
     def update_quality(self):
         assert self.quality == 80, "Quality de %s no es 80" % self.__class__.__name__
         self.quality = 80
 
-    def __repr__(self):
-        return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
 
 
 if __name__ == '__main__':
