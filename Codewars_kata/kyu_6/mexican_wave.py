@@ -1,22 +1,37 @@
+'''In this simple Kata your task is to create a function that turns a string into a Mexican Wave. 
+You will be passed a string and you must return that string in an array where an uppercase letter is a person standing up.
+
+1.  The input string will always be lower case but maybe empty.
+2.  If the character in the string is whitespace then pass over it as if it was an empty seat.'''
+
 def wave (strin):
-    list_strin = []
-    for letter in strin:
-        list_strin.append(letter)
+    result =[]
+    tamaño = len(strin)
+    for pos in range(tamaño):
+        letter = strin[pos]
+        if letter != " ":
+            new_word = strin[:pos] + letter.upper() + strin[pos+1:]
+            result.append(new_word)
     
-    assert isinstance(list_strin, list)
-    assert list_strin[0] == "h"
-    
-    result = []
-    result.append(strin.capitalize())
-    rest = ""
-    count = 0
-    while count < len(strin) - 1:
-        rest = rest + list_strin.pop(0)
-        save = rest + "".join(list_strin).capitalize()
-        result.append(save)
-        count += 1
+    return result 
         
 
-    return result
+if __name__ == "__main__":
+    
 
-print(wave("hello"))
+    # TEST CASES #
+
+    result = ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+    assert wave("hello") == result
+
+    result2 = ["Codewars", "cOdewars", "coDewars", "codEwars", "codeWars", "codewArs", "codewaRs", "codewarS"]
+    assert wave("codewars") == result2
+
+    result3 = []
+    assert wave("") == result3
+
+    result4 = ["Two words", "tWo words", "twO words", "two Words", "two wOrds", "two woRds", "two worDs", "two wordS"]
+    assert wave("two words") == result4
+
+    result5 = [" Gap ", " gAp ", " gaP "]
+    assert wave(" gap ") == result5
