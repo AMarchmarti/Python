@@ -1,14 +1,6 @@
 from item import Item
 class Backstage(Item):
 
-    def setQuality(self, valor):
-        if self.quality + valor <= 50:
-            self.quality = self.quality + valor
-        else:
-            self.quality
-    
-        assert 0 <= self.quality <= 50, "quality de %s fuera de rango" % self.__class__.__name__
-
     def update_quality(self):
 
         if self.sell_in > 10:
