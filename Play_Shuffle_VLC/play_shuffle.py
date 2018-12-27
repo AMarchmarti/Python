@@ -26,14 +26,12 @@ def CheckRandomSong (musiclist):
 
 def SelectRandomSong (library):
 
-    #We need the title of the song, then we extract of the library the title and create a list.
-    titlelist = list(library.keys())
     #We create a randomlist to save the songs randomly
     randomlist = []
-
-    while len(randomlist) < len(titlelist):
-
-        randomsong = random.choice(titlelist)
+    #Now we change the predefined dictionary by a random list
+    while len(randomlist) != len(library):
+        #Here we use the function choice of the library random, for change the order of the titles
+        randomsong = random.choice(list(library.keys()))
         assert isinstance(randomsong, str)
 
         if randomsong not in randomlist:
@@ -47,11 +45,12 @@ def SelectRandomSong (library):
 def MakeRandomPlayList (library):
     assert isinstance(library, dict)
 
-    randomsongs = SelectRandomSong(library)
-    playlist = dict((key, value) for key, value in enumerate (randomsongs))
+    randomtitle = SelectRandomSong(library)
+    #We return to convert our random list into a dictionary that will change its order, and we put the order
+    playlist = dict((key + 1, value) for key, value in enumerate (randomtitle))
 
     assert isinstance(playlist, dict)
-    assert isinstance(playlist[0],str)
+    assert isinstance(playlist[1],str)
    
     return playlist
 
