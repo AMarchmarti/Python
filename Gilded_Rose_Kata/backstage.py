@@ -9,8 +9,10 @@ class Backstage(Item):
         elif self.sell_in > 5 :
             self.setQuality(2)
 
-        elif self.sell_in <= 5:
+        elif self.sell_in > 0:
             self.setQuality(3)
+        else:
+            self.quality = 0
 
         self.setSell_in()
 
@@ -18,7 +20,7 @@ class Backstage(Item):
 if __name__ == '__main__':
 
     # Correct Test Case
-    item = Backstage("Backstage", 9, 0)
+    item = Backstage("Backstage", 0, 0)
     print(item)
 
     for dia in range(0, 10):
