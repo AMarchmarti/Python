@@ -11,7 +11,7 @@ class ConjuredItem(Item):
 
 if __name__ == "__main__":
 
-    # Correct Test Case
+    
     item = ConjuredItem("Elixir of mongoose", 5, 20)
     print(item)
 
