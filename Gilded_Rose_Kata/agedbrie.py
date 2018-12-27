@@ -1,16 +1,6 @@
 from item import Item
 class AgedBrie(Item):
 
-    def setQuality(self, valor):
-
-        if self.quality + valor <= 50:
-            self.quality = self.quality + valor
-        else:
-            self.quality = 50
-
-        assert 0 <= self.quality <= 50, "quality de %s fuera de rango" % self.__class__.__name__
-
-    # Override metodo update_quality de la Interfaz
     def update_quality(self):
 
         if self.sell_in > 0:
