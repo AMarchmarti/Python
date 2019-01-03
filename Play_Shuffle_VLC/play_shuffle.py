@@ -13,7 +13,7 @@ def CheckSelectRandomSong (song, library):
     
     return True
 
-def CheckRandomSong (musiclist):
+def CheckRepeatRandomSong (musiclist):
 
     assert isinstance(musiclist, dict)
 
@@ -55,6 +55,24 @@ def MakeRandomPlayList (library):
     return playlist
 
 print(MakeRandomPlayList(library))
+
+def LaunchVLC (library):
+    import subprocess
+
+    playlist = MakeRandomPlayList(library)
+    assert isinstance(playlist, dict)
+
+    locationVLC = "E:\\Program Files\\VideoLAN\\VLC\\vlc.exe"
+    for song in playlist:
+        assert isinstance(song, int)
+        tracknumber = playlist[song]
+        assert isinstance(tracknumber, str)
+        locationtrack = library[tracknumber]["location"]
+        locationVLC += " " + str(locationtrack)
+
+    return subprocess.Popen(locationVLC)
+
+LaunchVLC(library)
 
 
 
