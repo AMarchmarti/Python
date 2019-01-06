@@ -6,14 +6,37 @@ class CurrentAccount:
         self.direction = direction
         self.phone = phone
         self.balance = balance
+        self.bankruptcy = False
 
-    
+    def setName(self, name):
+        self.name = name
+    def getName(self, name):
+        return self.name
 
-    def setWithdrawBalance(self, amount):
+    def setSurName(self, surname):
+        self.surname = surname
+    def getSurName(self, surname):
+        return self.surname
+
+    def setDirection(self, direction):
+        self.direction = direction
+    def getDirection(self, direction):
+        return self.direction
+
+    def setPhone(self, phone):
+        self.phone = phone
+    def getPhone(self, phone):
+        return self.phone
+
+    def getBalance(self, balance):
+        return self.balance
+
+
+    def withdrawBalance(self, amount):
         self.balance -= amount
         return self.balance
 
-    def setDepositMoney(self, amount):
+    def depositMoney(self, amount):
         self.balance += amount
         return self.balance
         
@@ -34,9 +57,9 @@ if __name__ == "__main__":
 
     account_Tommy = CurrentAccount("Tommy", "Strange", "Baker street", "113425978", 1000)
     account_Tommy.checkAccount()
-    assert account_Tommy.setWithdrawBalance(500) == 500
-    assert account_Tommy.setDepositMoney(1000) == 1500
-    assert account_Tommy.getbankruptcy() == False
+    assert account_Tommy.withdrawBalance(500) == 500
+    assert account_Tommy.depositMoney(1000) == 1500
+
     account_Tommy.checkAccount()
     
     
