@@ -3,6 +3,17 @@ from item import Item
 
 
 class RegularItem(Item, Updatable):
+    
+    def getName(self):
+        return self.name
+
+
+    def getSell_in(self):
+        return self.sell_in
+    
+
+    def getQuality(self):
+        return self.quality
 
 
     def setSell_in(self):
@@ -31,10 +42,18 @@ class RegularItem(Item, Updatable):
 
 if __name__ == "__main__":
 
-    
+    #Test Cases
+    item = RegularItem("Queso", 5, 10)
+    item.update_quality()
+    assert item.getQuality() == 9
+    assert item.getSell_in() == 4
+    assert item.getName() == "Queso"
+
+    """
     item = RegularItem("NormalItem", 5, 10)
     print(item)
 
     for dia in range(1, 10):
         item.update_quality()
         print(item)
+    """
