@@ -6,7 +6,7 @@ class RegularItem(Item, Updatable):
 
 
     def setSell_in(self):
-        self.sell_in = self.sell_in - 1
+        self.sell_in -= 1
     
 
     def setQuality(self, valor):

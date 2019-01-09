@@ -7,7 +7,6 @@ class Sulfuras(RegularItem):
         pass
 
     def update_quality(self):
-        assert self.quality == 80, "Quality de %s no es 80" % self.__class__.__name__
         self.quality = 80
 
 
