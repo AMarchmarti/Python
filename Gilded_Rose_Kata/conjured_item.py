@@ -1,5 +1,5 @@
-from item import Item
-class ConjuredItem(Item):
+from regular_item import RegularItem
+class ConjuredItem(RegularItem):
 
     def update_quality(self):
 

@@ -1,5 +1,7 @@
-from item import Item
-class AgedBrie(Item):
+from regular_item import RegularItem
+
+
+class AgedBrie(RegularItem):
 
     def update_quality(self):
 

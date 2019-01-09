@@ -1,5 +1,5 @@
-from item import Item
-class Backstage(Item):
+from regular_item import RegularItem
+class Backstage(RegularItem):
 
     def update_quality(self):
 

@@ -1,5 +1,7 @@
-from item import Item
-class Sulfuras(Item):
+from regular_item import RegularItem
+
+
+class Sulfuras(RegularItem):
 
     def setSell_in(self):
         pass
