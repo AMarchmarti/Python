@@ -10,6 +10,20 @@ class GildedRose(object):
         self.items = items
 
 
+    def getQualityItem(self, target):
+        for item in self.items:
+            if item == target:
+                return item.getQuality()
+
+    """
+    def getQualityItem(self, name):
+        for item in self.items:
+            if item.getName == name:
+                return item.getQuality()
+    """
+       
+
+
     def update_quality(self):
         for item in self.items:
             item.update_quality()
@@ -32,6 +46,8 @@ if __name__ == "__main__":
     assert cheese.getQuality() == 1
     assert entrance.getQuality() == 26
     assert magicwater.getQuality() == 8
+
+    assert 26 == tienda.getQualityItem(entrance)
 
 
     for i in range (1,10):
