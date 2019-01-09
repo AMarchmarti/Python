@@ -32,3 +32,11 @@ if __name__ == "__main__":
     assert Cheese.getQuality() == 1
     assert Entrance.getQuality() == 26
     assert MagicWater.getQuality() == 8
+
+
+    for i in range (1,10):
+        Tienda.update_quality()
+    
+    assert Cheese.getQuality() == 17
+    assert MagicWater.getQuality() == 0
+    assert Entrance.getQuality() == 0
