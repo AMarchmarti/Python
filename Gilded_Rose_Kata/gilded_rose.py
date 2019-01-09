@@ -18,25 +18,25 @@ class GildedRose(object):
 if __name__ == "__main__":
 
     #Tests Cases
-    Cheese = AgedBrie("Cheese", 3, 0)
+    cheese = AgedBrie("Cheese", 3, 0)
 
-    MagicWater = ConjuredItem ("Water", 5, 10)
+    magicwater = ConjuredItem ("Water", 5, 10)
 
-    Entrance = Backstage("Metalica", 2, 23)
+    entrance = Backstage("Metalica", 2, 23)
 
-    inventory = [Cheese, MagicWater, Entrance]
+    inventory = [cheese, magicwater, entrance]
 
     Tienda = GildedRose(inventory)
     Tienda.update_quality()
 
-    assert Cheese.getQuality() == 1
-    assert Entrance.getQuality() == 26
-    assert MagicWater.getQuality() == 8
+    assert cheese.getQuality() == 1
+    assert entrance.getQuality() == 26
+    assert magicwater.getQuality() == 8
 
 
     for i in range (1,10):
         Tienda.update_quality()
     
-    assert Cheese.getQuality() == 17
-    assert MagicWater.getQuality() == 0
-    assert Entrance.getQuality() == 0
+    assert cheese.getQuality() == 17
+    assert magicwater.getQuality() == 0
+    assert entrance.getQuality() == 0
