@@ -26,8 +26,8 @@ if __name__ == "__main__":
 
     inventory = [cheese, magicwater, entrance]
 
-    Tienda = GildedRose(inventory)
-    Tienda.update_quality()
+    tienda = GildedRose(inventory)
+    tienda.update_quality()
 
     assert cheese.getQuality() == 1
     assert entrance.getQuality() == 26
@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
 
     for i in range (1,10):
-        Tienda.update_quality()
+        tienda.update_quality()
     
     assert cheese.getQuality() == 17
     assert magicwater.getQuality() == 0
