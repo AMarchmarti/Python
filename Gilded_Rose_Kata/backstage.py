@@ -20,15 +20,19 @@ class Backstage(RegularItem):
 if __name__ == '__main__':
 
     # Correct Test Case
-    item = Backstage("Backstage", 0, 0)
-    print(item)
+    item = Backstage("Backstage", 9, 0)
+    item.update_quality()
+    assert item.getSell_in() == 8
+    assert item.getQuality() == 2
 
+    """
     for dia in range(0, 10):
         item.update_quality()
         print(item)
-    
+    print()
     # Incorrect Test Case
     item = Backstage("Backstage", 2, 100)
     for dia in range(1, 10):
         item.update_quality()
         print(item)
+    """
