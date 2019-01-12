@@ -94,20 +94,21 @@ class Data:
         item = self.__monthLetter()
         item = self.getDate()
         print(item)
+        return item
 
 if __name__ == "__main__":
 
     #Tests Cases
 
     data = Data(13, 4, 2030)
-    data.printDate()
-    print()
+    assert data.printDate() == "13-April-2030"
+
     data2 = Data(14, 5, 2021)
-    data2.printDate()
-    print()
-    data_add = Data(21, 11, 2050)
-    data_add.addDays(1000)
-    data_add.printDate()
+    assert data2.printDate() == "14-May-2021"
+
+    data3 = Data(21, 11, 2050)
+    data3.addDays(1000)
+    assert data3.printDate() == "29-July-2053"
 
 
 
