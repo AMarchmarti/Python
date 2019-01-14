@@ -11,11 +11,11 @@ class PrepaidCard:
 
     
     def getPhone(self):
-        return self.phone
+        return str(self.phone)
 
     
     def getDni(self):
-        return self.dni
+        return str(self.dni)
 
 
     def depositBalance(self, value):
@@ -29,23 +29,25 @@ class PrepaidCard:
         return self.balance
     
 
-    def stringToInteger(self, hour):
-        hour = Hour.getHour(hour)
-        arr = []
-        for element in hour:
-            try:
-                arr.append(int(element))
-            except ValueError:
-                pass
-        return arr
+    def callTime(self, seconds):
+        hour = Hour(0, 0, seconds)
+        Hour.setHour(hour)
+        return hour.getHour()
+
+
+    def makeCall(self, seconds):
+        consum = 0.15 + (0.01 * seconds)
+        self.balance -= consum
+        return self.balance
+
 
     def getBalance(self):
         return self.balance
 
 
-
-
-
+    def checkCard(self, seconds):
+        balance = self.getBalance()
+        print("Good morning, your phone number is %s with NIF: %s. Your balance is %s with call time of %s" % (self.getPhone(), self.getDni(), balance, self.callTime(seconds)))
 
 
 if __name__ == "__main__":
@@ -61,8 +63,14 @@ if __name__ == "__main__":
     #Tests sendMessage
     card1.sendMessage(200)
     assert card1.getBalance() == 1982
-    #Test stringToInteger
-    hour = Hour(00, 00, 00)
-    assert card1.stringToInteger(hour) == [00,00,00]
+    #Test callTime
+    assert card1.callTime(300) == "00:05:00"
+    #Test makeCall
+    card1.makeCall(300)
+    assert card1.getBalance() == 1978.85
+    #Test checkCard
+    
+    card1.checkCard(300)
+    
 
     
