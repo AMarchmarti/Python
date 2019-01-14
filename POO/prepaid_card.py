@@ -29,6 +29,16 @@ class PrepaidCard:
         return self.balance
     
 
+    def stringToInteger(self, hour):
+        hour = Hour.getHour(hour)
+        arr = []
+        for element in hour:
+            try:
+                arr.append(int(element))
+            except ValueError:
+                pass
+        return arr
+
     def getBalance(self):
         return self.balance
 
@@ -51,5 +61,8 @@ if __name__ == "__main__":
     #Tests sendMessage
     card1.sendMessage(200)
     assert card1.getBalance() == 1982
+    #Test stringToInteger
+    hour = Hour(00, 00, 00)
+    assert card1.stringToInteger(hour) == [00,00,00]
 
     
