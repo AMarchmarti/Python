@@ -16,12 +16,12 @@ class Hour:
 
     
     def setHour(self):
-        assert self.hour in range(0,24) and self.minutes in range(0,59) and self.seconds in range(0, 59)
-        try:
-            return self
-            
-        except AssertionError:
-            return 0
+        if self.hour not in range(0, 24):
+            self.hour = 0
+        elif self.minutes not in range(0, 59):
+            self.minutes = 0
+        elif self.seconds not in range(0, 59):
+            self.seconds = 0
 
     
     def getHour(self):
@@ -44,4 +44,4 @@ if __name__ == "__main__":
 
     hour2 = Hour(25, 00, 34)
     Hour.setHour(hour2)
-    assert Hour.getHour(hour2) == "0"
+    assert Hour.getHour(hour2) == "0:0:34"
