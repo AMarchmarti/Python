@@ -19,8 +19,10 @@ class Hour:
         if self.hour not in range(0, 24):
             self.hour = 0
         elif self.minutes not in range(0, 59):
+            self.hour += 1
             self.minutes = 0
         elif self.seconds not in range(0, 59):
+            self.minutes += 1
             self.seconds = 0
 
     
