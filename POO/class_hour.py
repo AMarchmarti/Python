@@ -19,15 +19,15 @@ class Hour:
         if self.hour not in range(0, 24):
             self.hour = 0
         elif self.minutes not in range(0, 59):
-            self.hour += 1
-            self.minutes = 0
+            self.hour += (int(self.minutes / 60))
+            self.minutes = self.minutes % 60
         elif self.seconds not in range(0, 59):
-            self.minutes += 1
-            self.seconds = 0
+            self.minutes += (int(self.seconds / 60))
+            self.seconds = self.seconds % 60
 
     
     def getHour(self):
-        return "%s:%s:%s" % (self.hour, self.minutes, self.seconds)
+        return "%02d:%02d:%02d" % (self.hour, self.minutes, self.seconds)
 
 
     def printHour(self):
@@ -46,4 +46,4 @@ if __name__ == "__main__":
 
     hour2 = Hour(25, 00, 34)
     Hour.setHour(hour2)
-    assert Hour.getHour(hour2) == "0:0:34"
+    assert Hour.getHour(hour2) == "00:0:34"
