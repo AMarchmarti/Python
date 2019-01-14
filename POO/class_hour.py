@@ -46,4 +46,4 @@ if __name__ == "__main__":
 
     hour2 = Hour(25, 00, 34)
     Hour.setHour(hour2)
-    assert Hour.getHour(hour2) == "00:0:34"
+    assert Hour.getHour(hour2) == "00:00:34"
