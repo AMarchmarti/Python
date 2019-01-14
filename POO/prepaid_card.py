@@ -23,6 +23,12 @@ class PrepaidCard:
         return self.balance
 
 
+    def sendMessage(self, numberMessage):
+        cost = numberMessage * 0.09
+        self.balance -= cost
+        return self.balance
+    
+
     def getBalance(self):
         return self.balance
 
@@ -42,5 +48,8 @@ if __name__ == "__main__":
     #Test depositBalance
     card1.depositBalance(1000)
     assert card1.getBalance() == 2000
+    #Tests sendMessage
+    card1.sendMessage(200)
+    assert card1.getBalance() == 1982
 
     
