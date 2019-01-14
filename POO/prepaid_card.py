@@ -18,8 +18,8 @@ class PrepaidCard:
         return self.dni
 
 
-    def getSaldo(self):
-        return self.getSaldo
+    def getBalance(self):
+        return self.balance
 
 
 
@@ -32,4 +32,7 @@ if __name__ == "__main__":
     #Tests Cases
     card1 = PrepaidCard("645378955", "43425351F", 1000)
     assert card1.getPhone() == "645378955"
+    assert card1.getDni() == "43425351F"
+    assert card1.getBalance() == 1000
+
     
